@@ -1,6 +1,6 @@
 # Campus Secondhand Marketplace: EER and Class Diagram Design Overview
 
-This design project models secondhand trading among students at Seattle-area universities. Students use one account to list items, browse listings, and buy from other students. Buyers and sellers communicate through the platform and arrange an in-person exchange; the platform records their agreement but does not process online payments. This article first explains the EER diagram as a data model, then presents the business objects and their relationships in four class diagrams, and finally outlines the user cases behind the design. Relationships shown in the diagrams are distinguished from business rules that still require implementation.
+This design project models secondhand trading among students at Seattle-area universities. Students use one account to list items, browse listings, and buy from other students. Buyers and sellers communicate through the platform and arrange an in-person exchange; the platform records their agreement but does not process online payments. This article first explains the EER diagram as a data model, then presents the business objects and their relationships in four class diagrams, outlines the user cases behind the design, and records the design process and AI usage. Relationships shown in the diagrams are distinguished from business rules that still require implementation.
 
 ## 1. EER Diagram
 
@@ -89,3 +89,14 @@ The participants are students, students acting as buyers or sellers in particula
 - **UC-5601 View platform activity:** An administrator views summaries of listings, transactions, and user activity. The diagrams do not yet define how these metrics are calculated.
 
 Together, these user cases define the workflows served by the diagrams' data relationships. Order reservations and cancellations, ownership of pickup locations, messaging restrictions, review eligibility, and reporting permissions still require implementation; static EER and class diagrams alone cannot enforce them.
+
+## 4. Design Process and AI Usage
+
+The milestones below are listed in chronological order. They distinguish the team's design decisions from AI-assisted synthesis.
+
+| Stage | Participants and discussion | AI usage |
+| --- | --- | --- |
+| 1. Requirements and scenarios | The whole team discussed user needs and usage scenarios. | We made extensive use of speech-to-text transcription to turn spoken meeting discussions into written material. AI then organized and summarized that material into the [user cases](user-cases.md) used for the design. |
+| 2. ER diagram | Eduardo drafted the ER diagram from the user cases. The team then reviewed the draft in a meeting and finalized it through discussion. | None. |
+| 3. Class diagrams | A team member drew the class diagrams manually based on the draft and finalized ER diagram. The team discussed the draft class diagrams and finalized them. | None. |
+| 4. Final synthesis | Kun consolidated the drafts, user cases, ER diagram, class diagrams, and meeting materials into the final design results. | We again made extensive use of speech-to-text transcription to capture meeting discussions in writing, alongside AI-assisted organization and summarization of the transcripts and design materials into the final documentation. |
