@@ -9,7 +9,7 @@
 | Secondhand Item | A user-posted item available for sale. | A like-new Dell 27-inch monitor for $80. |
 | Transaction Order | A record of a completed buyer-seller agreement and its status. | Leo sells a monitor to Lily; pickup is pending. |
 | Purchase Request | A buyer's request for a specific item. | A UW CSE sophomore seeks textbooks under $200. |
-| Campus Pickup Point | A campus location for in-person exchanges. | UW Red Square or the SU Student Center. |
+| Pickup Point | A pickup location negotiated and agreed upon by the buyer and seller (typically a campus spot). | UW Red Square or the SU Student Center, as mutually arranged. |
 | Item Tag | An item attribute used for search and recommendations. | Like new, negotiable, UW pickup, accessories included. |
 | Transaction Review | A post-transaction rating between buyer and seller. | A five-star review: “Condition matched the description.” |
 | Favorite | A record of an item saved by a user. | Lily saves a used mechanical keyboard. |
@@ -21,11 +21,11 @@
 
 - Post item details, photos, prices, and exchange methods.
 - Filter listings by category, price, and campus, or publish purchase requests.
-- Complete exchanges at pickup points, submit reviews, and save items.
+- Complete exchanges at a mutually agreed pickup point, submit reviews, and save items.
 - View personal listings, orders, favorites, and reviews.
 
 ### Platform Administrators
 
 - Review prohibited listings, process reports, and suspend violating accounts.
-- Manage pickup points and maintain category and tag dictionaries.
+- Maintain category and tag dictionaries.
 - View transaction, listing-volume, and user-activity data.
