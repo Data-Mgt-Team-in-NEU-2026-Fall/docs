@@ -8,6 +8,7 @@ This article converts the [original draw.io EER diagram](Seattle%20Campus%20Seco
 - The connection labels `1`, `(0,1)`, `(0,N)`, and `(1,N)` correspond to the original `1..1`, `0..1`, `0..N`, and `1..N`, respectively, preserving the cardinality labels at each entity end.
 - `SAVES` remains a many-to-many relationship between users and items. Its `date_saved` attribute is defined inside `relationship SAVES` and renders as an attribute ellipse connected to the relationship diamond.
 - `=>= d` represents total, disjoint specialization, corresponding to the original diagram's `t` and `d`. Subtypes inherit their supertype's attributes; no additional IDs are introduced.
+- An item can have several photos, so `SECONDHAND_ITEM` has no `photo_url` attribute. Photos are a separate `ITEM_PHOTO` entity (`photo_id`, `photo_url`, `display_order`) linked to the item through `HAS_PHOTO`.
 - Relationships with the same display name use distinct aliases. For example, `SUBMITS_REQUEST` and `SUBMITS_REPORT` both display as `SUBMITS` but represent separate relationship diamonds. In the recursive category relationship `CATEGORY_HAS`, the `(0,1)` end represents the parent category and the `(0,N)` end represents child categories.
 - In the original file, the `item_id` connection is not bound to the item endpoint, and the order-to-`BUYER REVIEW` connection through `HAS` is not bound to the review endpoint. These connections are restored based on their drawn positions and the design notes. Two standalone cardinality labels at the item end are assigned to `TAGGED_WITH` (`0..N`) and `REQUESTS` (`1..1`). These adjustments restore drawing connections rather than introduce new business rules.
 
@@ -60,7 +61,12 @@ entity SECONDHAND_ITEM {
   brand
   model
   year_acquired
+}
+
+entity ITEM_PHOTO {
+  photo_id
   photo_url
+  display_order
 }
 
 entity ITEM_CATEGORY {
@@ -155,6 +161,8 @@ relationship "HAS" as CATEGORY_HAS {
 }
 relationship TAGGED_WITH {
 }
+relationship HAS_PHOTO {
+}
 relationship "SUBMITS" as SUBMITS_REQUEST {
 }
 relationship REQUESTS {
@@ -205,6 +213,8 @@ ITEM_CATEGORY -(0,1)- CATEGORY_HAS
 CATEGORY_HAS -(0,N)- ITEM_CATEGORY
 SECONDHAND_ITEM -(0,N)- TAGGED_WITH
 TAGGED_WITH -(0,N)- ITEM_TAG
+SECONDHAND_ITEM -1- HAS_PHOTO
+HAS_PHOTO -(0,N)- ITEM_PHOTO
 
 USER -1- SUBMITS_REQUEST
 SUBMITS_REQUEST -(0,N)- PURCHASE_REQUEST
@@ -250,7 +260,7 @@ REPORTS_TRANSACTION -(0,N)- TRANSACTION_REPORT
 
 ## Interpretation and Scope
 
-All users are modeled as `USER`. Buyer and seller are transaction roles expressed through `BUYS` and `SELLS`, not user subtypes. Each order originates from one purchase request and has one buyer, one seller, and one pickup point. A request can produce at most one order. Each order can have at most one review of its buyer and one review of its seller.
+All users are modeled as `USER`. Buyer and seller are transaction roles expressed through `BUYS` and `SELLS`, not user subtypes. Each order originates from one purchase request and has one buyer, one seller, and one pickup point. A request can produce at most one order. Each order can have at most one review of its buyer and one review of its seller. An item can have any number of photos, each belonging to exactly one item and ordered by `display_order`.
 
 `BUYER REVIEW` refers to a review of the buyer, and `SELLER REVIEW` refers to a review of the seller, not the author's role. Each report targets either one item or one transaction, never both. Only the buyer or seller of an order may submit a transaction report about that order.
 

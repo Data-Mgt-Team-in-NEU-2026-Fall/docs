@@ -773,18 +773,6 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="107" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=10;align=center;verticalAlign=middle;" value="photo_url" vertex="1">
-          <mxGeometry height="40" width="130" x="1214" y="295" as="geometry" />
-        </mxCell>
-        <mxCell id="567" edge="1" parent="1" source="13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="107" value="">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1254" y="350" />
-              <mxPoint x="1184" y="350" />
-              <mxPoint x="1184" y="315.03999999999996" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
         <mxCell id="108" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=10;align=center;verticalAlign=middle;" value="&lt;u&gt;category_id&lt;/u&gt;" vertex="1">
           <mxGeometry height="40" width="130" x="265" y="170" as="geometry" />
         </mxCell>
@@ -1071,8 +1059,8 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="999" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left;verticalAlign=top;spacing=6;" value="&lt;b&gt;Business rules / constraints&lt;/b&gt;&lt;br&gt;•&amp;nbsp;PURCHASE_REQUEST targets one specific secondhand item.&lt;br&gt;• Buyer and seller are relationship roles played by USER. They are not subtypes.&lt;br&gt;• Every transaction has exactly one buyer and one seller.&lt;br&gt;• Pickup point is for every transaction.&lt;br&gt;• A transaction may have at most two reviews: buyer to seller and seller to buyer.&lt;br&gt;• REPORT targets either one item or one transaction, but not both (XOR).&lt;br&gt;• Transaction reports may only be submitted by buyer or seller.&lt;br&gt;• SAVES is M:N with relationship attribute date_saved." vertex="1">
-          <mxGeometry height="199" width="350.5" x="2573.5" y="1651" as="geometry" />
+        <mxCell id="999" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left;verticalAlign=top;spacing=6;" value="&lt;b&gt;Business rules / constraints&lt;/b&gt;&lt;br&gt;•&amp;nbsp;PURCHASE_REQUEST targets one specific secondhand item.&lt;br&gt;• Buyer and seller are relationship roles played by USER. They are not subtypes.&lt;br&gt;• Every transaction has exactly one buyer and one seller.&lt;br&gt;• Pickup point is for every transaction.&lt;br&gt;• A transaction may have at most two reviews: buyer to seller and seller to buyer.&lt;br&gt;• REPORT targets either one item or one transaction, but not both (XOR).&lt;br&gt;• Transaction reports may only be submitted by buyer or seller.&lt;br&gt;• SAVES is M:N with relationship attribute date_saved.&lt;br&gt;• An item may have several photos (ITEM_PHOTO). display_order orders them, and display_order 1 is the cover photo." vertex="1">
+          <mxGeometry height="229" width="350.5" x="2573.5" y="1651" as="geometry" />
         </mxCell>
         <mxCell id="s7sT-Rs_FwlKAEs5xzhr-1030" edge="1" parent="1" source="18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;" target="110" value="">
           <mxGeometry relative="1" as="geometry">
@@ -1335,6 +1323,46 @@
         </mxCell>
         <mxCell id="5q-R7obUAgKT6CBFqT1L-1038" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;" value="t" vertex="1">
           <mxGeometry height="24" width="60" x="983" y="1720" as="geometry" />
+        </mxCell>
+        <mxCell id="ip-entity" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;" value="ITEM_PHOTO" vertex="1">
+          <mxGeometry height="60" width="190" x="1680" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ip-rel" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#000000;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" value="HAS_PHOTO" vertex="1">
+          <mxGeometry height="80" width="130" x="1710" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="ip-a-id" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=10;align=center;verticalAlign=middle;" value="&lt;u&gt;photo_id&lt;/u&gt;" vertex="1">
+          <mxGeometry height="40" width="130" x="1930" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ip-a-url" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=10;align=center;verticalAlign=middle;" value="photo_url" vertex="1">
+          <mxGeometry height="40" width="130" x="1930" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ip-a-order" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=10;align=center;verticalAlign=middle;" value="display_order" vertex="1">
+          <mxGeometry height="40" width="130" x="1930" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="ip-e-item-rel" edge="1" parent="1" source="13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;exitX=1;exitY=0.15;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="ip-rel" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ip-l-item" connectable="0" parent="ip-e-item-rel" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="1..1" vertex="1">
+          <mxGeometry relative="1" x="-0.75" as="geometry">
+            <mxPoint x="0" y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ip-e-rel-ent" edge="1" parent="1" source="ip-rel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="ip-entity" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ip-l-photo" connectable="0" parent="ip-e-rel-ent" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="0..N" vertex="1">
+          <mxGeometry relative="1" x="0.75" as="geometry">
+            <mxPoint x="24" y="0" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ip-e-ent-id" edge="1" parent="1" source="ip-entity" style="endArrow=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="ip-a-id" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ip-e-ent-url" edge="1" parent="1" source="ip-entity" style="endArrow=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="ip-a-url" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ip-e-ent-order" edge="1" parent="1" source="ip-entity" style="endArrow=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="ip-a-order" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
